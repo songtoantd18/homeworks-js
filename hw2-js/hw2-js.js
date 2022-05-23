@@ -1,0 +1,70 @@
+let name = prompt("nhập tên của bạn ở đây", "song toàn");
+let level = prompt("nhâp trình độ của bạn ở đây", "fresher");
+let job = prompt("nhâp chức vụ của bạn ở đây", "member");
+let age = prompt("nhập thâm niên của bạn ở đây", "4");
+let b = 123;
+switch (level) {
+    case 'fresher':
+        alert(' lương trình độ của bạn là 8 000 000');
+        console.log('8000000');
+        break;
+    case 'junior':
+        alert(' lương trình độ của bạn là 10 000 000');
+        console.log('10000000');
+        break;
+    case 'middle':
+        alert(' lương trình độ của bạn là 15 000 000');
+        console.log('15000000');
+        break;
+    case 'senior':
+        alert(' lương trình độ của bạn là 20 000 000');
+        console.log('20000000');
+        break;
+
+}
+switch (job) {
+    case 'member':
+        alert(' lương chức vụ của bạn là 0 ');
+        console.log('0');
+        break;
+    case 'trainer':
+        alert(' lương chức vụ của bạn là 1 000 000');
+        console.log('1000000');
+        break;
+    case 'team lead':
+        alert('lương chức vụ của bạn là 3 000 000');
+        console.log('3000000');
+        break;
+    case 'pm':
+        alert(' lương chức vụ của bạn là 8 000 000');
+        console.log('8000000');
+        break;
+
+}
+if (0 < age < 3) {
+    console.log('phụ cấp thâm niên là 0');
+    alert('phụ cấp thâm niên là 0');
+
+    
+} else if (3 <= age < 5) {
+    console.log('phụ cấp thâm niên là 500.000')
+    alert('phụ cấp thâm niên là 500.000');
+
+} else if (5 <= age < 😎 {
+    console.log('phụ cấp thâm niên là 2.000.000')
+    alert('phụ cấp thâm niên là 2.000.000');
+
+} else if (8 <= age < 10) {
+    console.log('phụ cấp thâm niên là 4.000.000')
+    alert('phụ cấp thâm niên là 4.000.000');
+
+    
+} else {
+    console.log("not a valid age");
+}
+// if (0 < age < 3) {
+//     alert('phụ cấp thâm niên là 0')
+// }
+// else if (3 < age < 5) {
+//     alert('phụ cấp thâm niên là 500.000')
+// }
