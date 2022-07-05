@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+
+
+
+
+       const arrayInput = [];
+       for (i=0 ; i<11; i++){
+        let numberRadom = Math.floor (Math.random () * 100 + 1);
+        console.log(numberRadom);
+        arrayInput.push(numberRadom);
+        
+       }
+       console.log(arrayInput)
+
+
+
+
+       const maxInput = Math.max(...arrayInput);
+       const indexMaxInput = arrayInput.indexOf(maxInput)
+       let previousNumber2 = arrayInput[indexMaxInput -2];
+       let previousNumber1 = arrayInput[indexMaxInput -1];
+
+       
+       let nextNumber2 = arrayInput[indexMaxInput +2];
+       let nextNumber1 = arrayInput[indexMaxInput +1];
+
+
+
+
+
+
+       const sumNumber = previousNumber1 + previousNumber1 + nextNumber1 + nextNumber2;
+  
+       console.log( 'max number',sumNumber);
+       console.log(indexMaxInput)
+
+    </script>
+    
+</body>
+</html>

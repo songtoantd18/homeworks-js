@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./json.css">
+</head>
+
+<body>
+   
+    <form  >
+
+ 
+
+        <div>
+
+        </div><label for="fname">First name:</label>
+        <input type="text" id="name" name="fname" placeholder=" Nguyen Song Toan"><br><br>
+        <label for="fname">Identity Card</label>
+        <input type="number" id="idCard" name="fname" placeholder="012345678984"><br><br>
+        <label for="fname">Phone Number :</label>
+        <input type="number" id="phone" name="fname" placeholder="05113113113"><br><br>
+        <label for="lname">Age :</label>
+        <input type="number" id="age" name="lname" placeholder="19"><br><br>
+        <button type="submit" id="button" > Submit </button>
+    </form>
+    <table id="tableDisplay">
+        <tr>
+            <th>First Name</th>
+            <th>ID Cards</th>
+            <th>Phone Number</th>
+            <th>Age</th>
+
+
+        </tr>
+
+    </table>
+
+</body>
+<script>
+    // function handleSubmit(e){
+    //     e.preventDefault()
+    //     console.log('submit')
+    // }
+    //  stringify : từ js type sang json
+    // parse : từ json sang js
+
+    var button = document.getElementById("button")
+    button.addEventListener("click",displayDetails)
+    
+    var row = 1;
+    var inforStudent= [];
+    const list = [];
+
+
+
+    function displayDetails() {
+
+        event.preventDefault()
+        let inforStudent = {};
+        var fullname = document.getElementById("name").value;
+        var idCard = document.getElementById("idCard").value;
+        var phone = document.getElementById("phone").value;
+        var age = document.getElementById("age").value;
+
+
+
+    
+      
+        localStorage.setItem("inforStudent ", JSON.stringify(inforStudent))
+        localStorage.setItem("nameSet", JSON.stringify(fullname))
+        localStorage.setItem("idCardSet ", JSON.stringify(idCard))
+        localStorage.setItem("phoneSet ", JSON.stringify(phone))
+        localStorage.setItem("ageSet ", JSON.stringify(age))
+
+
+
+        let nameGet =localStorage.getItem("nameSet")
+        let idCardGet =localStorage.getItem("idCardSet")
+        let phoneGet =localStorage.getItem("phoneSet")
+        let ageGet =localStorage.getItem("ageSet")
+
+        console.log(`day là getname`,fullname)
+        console.log(`day là getidcard`,idCard)
+        console.log(`day là getphone`,phone)
+        console.log(`day là getage`,age)
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //     if (!fullname || !idCard || !phone || !age) {
+    //         alert("please fill all the boxes");
+    //         return inforStudent;
+
+    // }
+    var tableDisplay=document.getElementById("tableDisplay");
+
+var newRow = tableDisplay.insertRow(row);
+var cell1 =newRow.insertCell(0);
+var cell2 =newRow.insertCell(1);
+var cell3 =newRow.insertCell(2);
+var cell4 =newRow.insertCell(3);
+
+cell1.innerHTML = nameGet;
+cell2.innerHTML = idCard;
+cell3.innerHTML = phone;
+cell4.innerHTML = age;
+row++;
+
+
+
+ 
+        }
+
+
+        
+
+
+
+
+
+
+        // inforStudent.fullname = fullname;
+        // inforStudent.idCard = idCard;
+        // inforStudent.phone = phone;
+        // inforStudent.age = age;
+        // console.log(inforStudent)
+        // localStorage.setItem('name ', JSON.stringify(fullname))
+        // localStorage.setItem('IDcard ', JSON.stringify(idCard))
+        // localStorage.setItem('phone ', JSON.stringify(phone))
+        // localStorage.setItem('age ', JSON.stringify(age))
+
+
+    //     localStorage.getItem("name");
+
+    //     for (let i = 0; i < localStorage.length; i++) {
+    //         x = localStorage.key();
+    //         list.push(inforStudent)
+    //     }
+
+    // }
+   
+
+
+
+
+
+    // document.getElementById("button").onclick = (event) => {
+    //     event.preventDefault()
+    //     let inforStudent = {};
+    //     window.list = [];
+
+    //     var fullname = document.getElementById("name").value;
+    //     var idCard = document.getElementById("idCard").value;
+    //     var phone = document.getElementById("phone").value;
+    //     var age = document.getElementById("age").value;
+
+
+    //     inforStudent.fullname = fullname;
+    //     inforStudent.idCard = idCard;
+    //     inforStudent.phone = phone;
+    //     inforStudent.age = age;
+
+
+
+    //     console.log('dday laf student',inforStudent)
+    //     localStorage.setItem('name ', JSON.stringify(fullname))
+    //     localStorage.setItem('IDcard ', JSON.stringify(idCard))
+    //     localStorage.setItem('phone ', JSON.stringify(phone))
+    //     localStorage.setItem('age ', JSON.stringify(age))
+
+        
+    //     list.push(inforStudent)
+    //     console.log('day la list',list)
+
+    //     // for (let i = 0; i < localStorage.length; i++) {
+    //     //     x = localStorage.key(i);
+    //     //     list.push(localStorage.getItem(x));
+    //     // }
+
+
+    // }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+</html>

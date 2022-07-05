@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        var inpArr = [1, 2, 3, 4, 5, 1, 1, 2, 3];
+        inpArr.sort(function (a, b) {
+            return b - a;
+        });
+        var finalArr = [];
+        for (var i = 0; i < inpArr.length; i++) {
+            if (inpArr[i - 1] !== inpArr[i] && inpArr[i] !== inpArr[i + 1]) {
+                finalArr.push(inpArr[i]);
+            }
+        }
+        console.log(finalArr);
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="luckynumber()">vé số vietlot</button>
+
+
+
+    <script>
+
+
+
+        const luckynumber = () => {
+
+            let NumArray = [];
+            let num;
+
+            for (var i = 1; i < 7; i++) {
+
+                do {
+                    num = prompt(`nhập 2 số ngẫu nhiên lớn hơn 1 nhỏ hơn 46 và phải lần` + i);
+                    num = parseInt(num);
+                    if (num < 1 || num > 46 || isNaN(num)) { alert(`bạn đã nhập SAI mời bạn nhập lại lần` + i) }
+                    else { alert(`bạn nhập đúng`) }
+
+
+                } while (num < 1 || num > 46 || isNaN(num));
+                NumArray.push(num);
+            }
+            console.log(`dãy số bạn nhập lần ${i}`, NumArray);
+
+            let NumVietlot = [1, 2, 3, 4, 5, 6];
+            NumVietlot.filter((value,index)=>{console.log(`đây là value`,index)})
+
+
+
+
+            console.log(`dãy số vietlot hôm nay là dãy sau :`, NumVietlot);
+
+            let bingoNumber = [];
+            let duplicate = 0;
+            for (let i = 0; i < 6; i++) {
+                for (let j = 0; j < 6; j++) {
+                    if (NumArray[i] === NumVietlot[j]) {
+                        duplicate++;// cộng giá trị duplicate lên cộng dồn//
+                        bingoNumber.push(NumArray[i])
+
+
+                    }
+
+                }
+
+
+
+            }
+            bingoNumber = bingoNumber.filter(function (value, index, array) {
+                return array.indexOf(value) === index;
+            });
+            console.log(`đây là bingo`, bingoNumber)
+
+            switch (bingoNumber.length)/* giá trị số lấy ở  dòng 48*/ {
+                case 2:
+                    alert("Ban trung giai khuyen khich");
+                    break;
+                case 3:
+                    alert("Ban trung giai ba");
+                    break;
+                case 4:
+                    alert("Ban trung giai nhi");
+                    break;
+                case 5:
+                    alert("Ban trung giai nhat");
+                    break;
+                case 6:
+                    alert("Giai jackpot. Chúc mừng bạn là người may mắn nhất hôm nay");
+                    break;
+                default:
+                    alert("Chuc ban may man lan sau");
+            }
+
+
+        }
+
+
+
+
+
+        // const checkVietlott = () => {
+        //     let user_result = userInput();
+        //     let vietlott_result = [];
+        //     let duplicate = 0;
+        //     do {
+        //         vietlott_result = [];
+        //         for (let i = 0; i < 6; i++) {
+        //             let randomNum = getRndInteger(1, 46);
+        //             vietlott_result.push(randomNum);
+        //         }
+        //         // console.log(vietlott_result);
+        //         // console.log(containsDuplicates(vietlott_result));
+        //     } while (containsDuplicates(vietlott_result) === true);
+
+        //     for (let i = 0; i < 6; i++) {
+        //         for (let j = 0; j < 6; j++) {
+        //             if (user_result[i] == vietlott_result[j]) {
+        //                 duplicate++;
+        //             }
+        //         }
+        //     }
+        //     console.log("Ket qua vietlott: " + vietlott_result);
+        //     console.log("Ma so xo cua ban: " + user_result)
+        //     console.log("Number of duplicates " + duplicate);
+
+        //     switch (duplicate) {
+        //         case 2:
+        //             alert("Ban trung giai khuyen khich");
+        //             break;
+        //         case 3:
+        //             alert("Ban trung giai ba");
+        //             break;
+        //         case 4:
+        //             alert("Ban trung giai nhi");
+        //             break;
+        //         case 5:
+        //             alert("Ban trung giai nhat");
+        //             break;
+        //         case 6:
+        //             alert("Giai jackpot. Chúc mừng bạn là người may mắn nhất hôm nay");
+        //             break;
+        //         default:
+        //             alert("Chuc ban may man lan sau");
+        //     }
+
+    </script>
+
+</body>
+
+</html>

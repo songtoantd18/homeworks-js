@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="appBirthday()">App HappyBirthday</button>
+
+    <script src="./hw5-js.js">
+        let NumArray = [];
+        let num;
+
+        for (var i = 1; i < 6; i++) {
+
+            do {
+                num = prompt(`nhập 2 số ngẫu nhiên lớn hơn 1 nhỏ hơn 46 lần` + i);
+                num = parseInt(num);
+                if (num < 1 || num > 46 || isNaN(num)) { alert(`bạn đã nhập SAI mời bạn nhập lại lần` + i) }
+                else { alert(`bạn nhập đúng`) }
+                
+
+            } while (num < 1 || num > 46 || isNaN(num));
+            NumArray.push(num);
+            console.log(NumArray);
+        }
+
+        let arrNumberRandom = [];
+        let isDuplicate;
+        let numberVietlot;
+
+        for ( let j =1; j < 6;j++){
+            numberVietlot = Math.floor(Math.random()* 45)+1;
+            console.log(`numberVietlot`,numberVietlot)
+            arrNumberRandom.push(numberVietlot);
+            console.log(arrNumberRandom);
+            
+        }
+
+       
+
+    </script>
+</body>
+
+</html>

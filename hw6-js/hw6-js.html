@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+
+
+        // Viết function tính tổng số tiền chi tiêu, với các yêu cầu sau: 
+        // - nhập các giá trị bằng cách sử dụng prompt và
+        //  lưu trữ các giá trị trong mảng. 
+        // - Nếu nhập giá trị âm hoặc không phải số,
+        //  sẽ phải nhập lại 
+        // - Nếu người dùng nhập giá trị “Done” t
+        //  sẽ ngừng nhập tính toán và tiến hành tính tổng và in ra màn hình
+        let inputNumber;
+        const arrInput = [];
+
+        do {
+            do {
+                inputNumber = prompt('nhập số lớn hơn 0 ở đây', 34)
+                inputNumber = inputNumber.toUpperCase()
+                if (inputNumber === 'DONE') {
+                    break;
+                } else {
+                    inputNumber = parseInt(inputNumber)
+                }
+            
+            }while (
+                inputNumber < 0 || isNaN(inputNumber));
+            if (inputNumber !== 'DONE') {
+                arrInput.push(inputNumber);
+            }
+        }
+            while (inputNumber !== 'DONE');
+
+
+
+            const sumArr = arrInput.reduce((firstnumber, secondnumber) => {
+                return firstnumber + secondnumber;
+            }, 0);
+            alert(sumArr)
+           
+
+
+            // let value;
+            // const arrayValue = [];
+            // do {
+            //     do {
+            //         value = prompt('Type spent money');
+            //         if (value === 'Done') {
+            //             break;
+            //         } else {
+            //             value = parseInt(value);
+            //         }
+            //     } while (isNaN(value) || value < 0);
+            //     if (value !== 'Done') {
+            //         arrayValue.push(value);
+            //     }
+            // } while (value !== 'Done');
+
+            // const sumValue = arrayValue.reduce((accumulateItems, currentItem) => {
+            //     return accumulateItems + currentItem;
+            // }, 0);
+            // console.log('sumValue ~ sumValue', sumValue);
+
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>
