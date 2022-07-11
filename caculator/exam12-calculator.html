@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .background {
+        border: solid 1px black;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+
+        width: 236px;
+        height: 215px;
+        border-radius: 10px;
+        /* background-color: blue; */
+
+    }
+
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background-color: #091921;
+    }
+
+    .caculator {
+        position: relative;
+    }
+
+    .value {
+        font-family: 'Roboto';
+        font-weight: 700;
+        display: flex;
+        text-align: right;
+        margin-top: 11px;
+        margin-bottom: 2px;
+        color: white;
+        background-color: black;
+        border-radius: 10px;
+        border: 1px solid black;
+        width: 216px;
+        height: 36px;
+        right: 15px
+    }
+    input :active {
+        background-color: white;
+        color:black;
+
+    }
+
+    .container {
+        background-color: white;
+        border: 1px solid black;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .numAtrri {
+        border-radius: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        height: 100%;
+        background-color: white;
+        justify-content: center;
+    }
+
+    span {
+        color: #33ff77;
+        background-color: #0c2835;
+
+        font-family: 'Roboto';
+        font-weight: 700;
+        /* font-size: 24px; */
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+        text-align: center;
+        align-items: center;
+        margin-top: 5.5px;
+        margin-bottom: 5.5px;
+        margin-left: 5.5px;
+        margin-right: 5.5px;
+        /* align-items: center; */
+        /* vertical-align:middle; */
+        padding-top: 5px;
+
+
+        width: 30px;
+        height: 30px;
+        border: 1px solid white;
+        border-radius: 20px;
+    }
+
+    span:active {
+   
+    }
+    span:hover {
+        cursor: pointer;
+
+        background-color: #33ff77;
+        color: #0c2835;
+    }
+</style>
+
+
+
+
+<body>
+    <div class="background">
+
+        <form class="calculator" name=calc>
+            <div class="container">
+                <input type="text" class="value" name="txt" readonly>
+                <div class="numAtrri">
+                    <span class="num" onclick="document.calc.txt.value +='7' ">7</span>
+                    <span class="num" onclick="document.calc.txt.value +='8' ">8</span>
+                    <span class="num" onclick="document.calc.txt.value +='9' ">9</span>
+                    <span class="num plus" onclick="document.calc.txt.value +='+' ">+</span>
+                    <span class="num" onclick="document.calc.txt.value +='/' ">/</span>
+                    <span class="num" onclick="document.calc.txt.value +='4' ">4</span>
+                    <span class="num" onclick="document.calc.txt.value +='5' ">5</span>
+                    <span class="num" onclick="document.calc.txt.value +='6' ">6</span>
+                    <span class="num" onclick="document.calc.txt.value +='-' ">-</span>
+                    <span class="num" onclick="document.calc.txt.value +='*' ">*</span>
+                    <span class="num" onclick="document.calc.txt.value +='1' ">1</span>
+                    <span class="num" onclick="document.calc.txt.value +='2' ">2</span>
+                    <span class="num" onclick="document.calc.txt.value +='3' ">3</span>
+                    <span class="num equal" onclick="document.calc.txt.value=eval(calc.txt.value) ">=</span>
+                    <span class="num" onclick="document.calc.txt.value +='00%' ">%</span>
+                    <span class="num" onclick="document.calc.txt.value +='.' ">.</span>
+                    <span class="num" onclick="document.calc.txt.value +='0' ">0</span>
+                    <span class="num" onclick="document.calc.txt.value +='**' ">Exp</span>
+                    <span class="num "
+                        onclick="document.calc.txt.value = document.calc.txt.value.slice(0,-1) ">Del</span>
+                    <span class="num clear" onclick="document.calc.txt.value =''">C</span>
+                    
+
+
+
+                    <!-- <span class="num" onclick="document.calc.txt.value +='00%' ">00</span> -->
+                </div>
+
+
+            </div>
+    </div>
+
+    </form>
+    <script>
+    
+    </script>
+
+
+</body>
+
+</html>
