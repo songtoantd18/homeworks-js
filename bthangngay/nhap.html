@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .old {
+            background: blue;
+            color: red;
+        }
+
+        .mystyle {
+            width: 100%;
+            padding: 25px;
+            background-color: coral;
+            color: white;
+            font-size: 25px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+
+    <p>Click the "Try it" button to toggle between adding and removing the "mystyle" class name of the DIV element:</p>
+
+    <button id="btn">Try it</button>
+
+    <div id="myDIV" class="old">
+        This is a DIV element.
+    </div>
+
+    <script>
+         const $ = (selector) => document.querySelector(selector);
+        const $All = (selector) => document.querySelectorAll(selector);
+        const handle = (e) => {
+            var element = document.getElementById("myDIV");
+            element.classList.toggle("mystyle");
+            console.log(e)
+        };
+    //   document.querySelector("#btn").onclick = handle; 
+      $('#btn').onclick=handle;
+
+    </script>
+
+</body>
+
+</html>

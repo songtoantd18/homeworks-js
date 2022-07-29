@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="fresher">1111</h1>
+    <h1 id="reContact">12</h1>
+    <h1 id="Intern">3</h1>
+
+
+    Cho array sau:
+
+    <!--  -->
+    <script>
+        //     Từ array trên, hãy lọc ra các user đủ điều kiện:
+
+        const users = [
+            {
+                age: 18,
+                name: 'Lộc1',
+                phoneNumber: 0935964949,
+            },
+            {
+                age: 15,
+                name: 'Lộc 5',
+                phoneNumber: null,
+            },
+            {
+                age: 10,
+                name: 'Lộc 2',
+                phoneNumber: 0935969999,
+            },
+            {
+                age: 28,
+                name: 'Lộc 3',
+                phoneNumber: 0935964949,
+            },
+            {
+                age: 23,
+                name: 'Lộc 4',
+                phoneNumber: null,
+            },
+        ];
+        const fresher = [];
+        const reContact = [];
+        const Intern = [];
+        var newUser = users.filter(function (ArrayCon, index, array) {
+
+            switch (true) {
+                case (ArrayCon.age >= 18 && typeof ArrayCon.phoneNumber === 'number'):
+                    return fresher.push(ArrayCon);
+                    break;
+                case (ArrayCon.age > 18 && typeof ArrayCon.phoneNumber !== 'number'):
+                    return reContact.push(ArrayCon);
+
+                    break;
+                case (ArrayCon.age < 18 && typeof ArrayCon.phoneNumber === 'number'):
+                    return Intern.push(ArrayCon)
+                    break;
+                default:
+
+            }
+
+        })
+        console.log('fresher: Nếu user có age trên hoặc bằng 18, có phoneNumber thì thêm vào array fresher', fresher);
+        console.log('reContact: Nếu user có age trên hoặc bằng 18,không có phoneNumber thì thêm vào array reContact', reContact);
+        console.log('Intern:Nếu dưới 18, có phoneNumber thì vào array Intern', Intern);
+        console.log(newUser);
+        // - Nếu user có age trên hoặc bằng 18, có phoneNumber thì thêm vào array fresher, không có phoneNumber thì vào array
+        // reContact
+        // - Nếu dưới 18, có phoneNumber thì vào array Intern, không có phoneNumber thì mặc kệ
+        const btn = (fresher, reContact, Intern) => {
+            console.log('fresher:', fresher);
+            document.getElementById('fresher').innerText = ` fresher : ${JSON.stringify(fresher)}`
+            document.getElementById('reContact').innerText = `reContact : ${JSON.stringify(reContact)}`
+            document.getElementById('Intern').innerText = `Intern : ${JSON.stringify(Intern)}`
+        }
+        btn(fresher, reContact, Intern)
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+   
+    <script>
+
+        newArr=[];
+        function count_element_in_array(array, x) {
+            let count = 0;
+            for (let i = 0; i < array.length; i++) {
+                if (array[i] == x) //Tìm thấy phần tử giống x trong mảng thì cộng biến đếm
+                    count++;
+            }
+            console.log("Phan tu " + x + " xuat hien " + count + " lan");
+            newArr.push(count);
+        }
+        console.log('newArray:',newArr)
+        let array = [1, 2, 1, 3, 6, 1, 4 ,10, 0, 0 ];
+        for (let i = 0; i < array.length+1; i++) {
+            count_element_in_array(array, i);
+        }
+
+
+    </script>
+
+</body>
+
+</html>

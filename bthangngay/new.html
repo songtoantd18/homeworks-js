@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <h1 id="screen"> in ra ở đây</h1>
+    <button id="0" class=" base normal" name="example">0</button>
+    <button id="1" class=" base normal" name="example">1</button>
+    <button id="2" class=" base normal" name="example">2</button>
+    <button id="3" class=" base normal" name="example">3</button>
+    <button id="4" class=" base normal" name="example">4</button>
+    <button id="5" class=" base normal" name="example">5</button>
+    <button id="6" class=" base normal" name="example">6</button>
+    <button id="7" class=" base normal" name="example">7</button>
+    <button id="8" class=" base normal" name="example">8</button>
+    <button id="9" class=" base normal" name="example">9</button>
+
+
+    <h1></h1>
+    <script>
+        const $ = (selector) => document.querySelector(selector);
+        const $All = (selector) => document.querySelectorAll(selector);
+        const screen = $("#screen")
+        console.log('screen:',screen);
+        $All('[name = example]').forEach((small,index)=> {
+            console.log(small)
+            console.log('index:',index);
+
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .normal {
+            border: #00ff00 solid 1px;
+            background-color: #00ff00;
+            color: black;
+        }
+
+        .active {
+            background-color: #3399ff;
+            color: #cc0066;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="screen"> in ra ở đây</h1>
+    <button id="number" class=" base normal" name="number-0">0</button>
+    <button id="number" class=" base normal" name="number-1">1</button>
+    <button id="number" class=" base normal" name="number-2">2</button>
+    <button id="number" class=" base normal" name="number-3">3</button>
+    <button id="number" class=" base normal" name="number-4">4</button>
+    <button id="number" class=" base normal" name="number-5">5</button>
+    <button id="number" class=" base normal" name="number-6">6</button>
+    <button id="number" class=" base normal" name="number-7">7</button>
+    <button id="number" class=" base normal" name="number-8">8</button>
+    <button id="number" class=" base normal" name="number-9">9</button>
+
+
+    <script>
+
+
+
+        const $ = (selector) => document.querySelector(selector);
+        const $All = (selector) => document.querySelectorAll(selector);
+
+
+        const finalResult = document.getElementById('screen')
+        console.log('finalResult.innerHTML:', finalResult.innerHTML);
+        const elementBtn = document.querySelectorAll(".base")
+        // map,foreach,filter sử dụng 3 pp này để chyaj vòng lặp
+        const handleClick = (e) => {
+            const nodeElements = document.querySelectorAll(`[name=number-${e.target.innerText}]`)
+            const baseClass = document.getElementsByClassName('base')
+            // tìm tất cả các element có tất cả class =base thì xoá hết tất cả các class có active
+
+         
+           for (let i = 0; i < baseClass.length; i++) {
+                baseClass[i].classList.remove('active')
+                
+
+            }
+           nodeElements[0].classList.add('active')
+
+
+            // for (let i = 0; i < baseClass.length; i++) {
+            //     baseClass[i].classList.remove('active')
+                
+
+            // }
+
+
+
+
+            console.log('e.target.innerText:', e.target.innerText);
+
+            finalResult.innerHTML = e.target.innerText
+
+
+        }
+        for (i = 0; i < 10; i++) {
+            elementBtn[i].onclick = handleClick
+
+        }
+
+
+
+
+
+
+    </script>
+
+
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+<!-- 
+<!DOCTYPE html>
+<html>
+<body>
+<h1>The Document Object</h1>
+<h2>The querySelectorAll() Method</h2>
+
+<p>Add a background color all elements with class="example":</p>
+<h2 id="example">A heading</h2>
+<p id="example">A paragraph.</p> 
+<p id="example">A paragraph.</p> 
+<p class="example">A paragraph.</p> <p class="example">A paragraph.</p> <p class="example">A paragraph.</p> <p class="example">A paragraph.</p> <p class="example">A paragraph.</p> 
+
+<script>
+const nodeList = document.querySelectorAll("#example");
+for (let i = 0; i < nodeList.length; i++) {
+  nodeList[i].style.backgroundColor = "blue";
+}
+</script>
+
+</body>
+</html> -->
