@@ -11,30 +11,74 @@
 <body>
 
 
-    <h1 id="screen"> in ra ở đây</h1>
-    <button id="0" class=" base normal" name="example">0</button>
-    <button id="1" class=" base normal" name="example">1</button>
-    <button id="2" class=" base normal" name="example">2</button>
-    <button id="3" class=" base normal" name="example">3</button>
-    <button id="4" class=" base normal" name="example">4</button>
-    <button id="5" class=" base normal" name="example">5</button>
-    <button id="6" class=" base normal" name="example">6</button>
-    <button id="7" class=" base normal" name="example">7</button>
-    <button id="8" class=" base normal" name="example">8</button>
-    <button id="9" class=" base normal" name="example">9</button>
-
-
-    <h1></h1>
     <script>
-        const $ = (selector) => document.querySelector(selector);
-        const $All = (selector) => document.querySelectorAll(selector);
-        const screen = $("#screen")
-        console.log('screen:',screen);
-        $All('[name = example]').forEach((small,index)=> {
-            console.log(small)
-            console.log('index:',index);
+        const arrNumber = [
+            [3, 5, 1, 5, 4, 7],
+            [2, 8, 9, 3, 2, 1],
+            [7, 2, 7, 5, 3, 3],
+            [5, 4, 3, 6, 8, 9],
+            [3, 2, 1, 5, 6, 1],
+        ]
+        let arrSum = new Array();
+        let cheo1 = 0;
+        let cheo2 = 0;
+        let cheo3 = 0;
+        let cheo4 = 0;
+        let count = 0;
+        for (let i = 0; i < 5; i++) {
+            let sum = 0;
+            for (let j = 0; j < 6; j++) {
+                sum += arrNumber[i][j];
+            }
+            arrSum.push(sum);
+            console.log('sum:',arrSum);
+        }
 
-        })
+        
+        for(let j=0;j<5;j++ ) {
+            let sumVidu=0;
+            for(let i=0;i<6;i++) {
+                sumVidu +=arrNumber[j][i]
+            }
+            console.log('sumVidu:',sumVidu);
+        }
+        // for (let i = 0; i < 6; i++) {
+        //     let sum = 0;
+        //     for (let j = 0; j < 5; j++) {
+        //         sum += arrNumber[j][i];
+        //     }
+        //     arrSum.push(sum);
+        // }
+        // for (let i = 0; i < 5; i++) {
+        //     cheo1 += arrNumber[i][i];
+        // }
+        // for (let i = 0; i < 5; i++) {
+        //     cheo2 += arrNumber[i][i + 1];
+        // }
+        // for (let i = 0; i < 5; i++) {
+        //     cheo3 += arrNumber[i][5 - i];
+        // }
+        // for (let i = 0; i < 5; i++) {
+        //     cheo4 += arrNumber[i][5 - i - 1];
+        // }
+        // arrSum.push(cheo1, cheo2, cheo3, cheo4);
+        // function isNguyenTo(numberX) {
+        //     if (numberX < 2) {
+        //         return false;
+        //     }
+        //     else {
+        //         for (var i = 2; i < numberX - 1; i++) {
+        //             if (numberX % i == 0) {
+        //                 return false;
+        //             }
+        //         }
+        //         return true;
+        //     }
+        // }
+        // for (const element of arrSum) {
+        //     isNguyenTo(element) === true ? count++ : count = count;
+        // }
+        // count === 0 ? alert("Không tồn tại số nguyên tố trong danh sách") : alert(`Có ${count} số nguyên tố trong dãy `);
     </script>
 </body>
 

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const arrNumber = [
+            [3, 5, 1, 5, 4, 7],
+            [2, 8, 9, 3, 2, 1],
+            [7, 2, 7, 5, 3, 3],
+            [5, 4, 3, 6, 8, 9],
+            [3, 2, 1, 5, 6, 1],
+        ]
+        let arrRow = [];
+        let arrColumn = [];
+        let arrCross1 = [];
+        let arrCross2 = [];
+        let arrCross3 = [];
+        let arrCross4 = [];
+
+
+
+
+
+        for (let j = 0; j < 5; j++) {
+            let sumRow = 0;
+            for (let i = 0; i < 6; i++) {
+                sumRow += arrNumber[j][i];
+            }
+            arrRow.push(sumRow)
+
+            // console.log('sumRow:', arrRow);
+        }
+
+        for (let j = 0; j < 6; j++) {
+            let sumColumn = 0;
+            for (let i = 0; i < 5; i++) {
+                sumColumn += arrNumber[i][j];
+            }
+            arrColumn.push(sumColumn)
+
+            // console.log('arrColumn', arrColumn);
+        }
+        for (let i = 0; i < 5; i++) {
+            let sumCross1 = 0;
+            sumCross1 += arrNumber[i][i];
+            // console.log('sumCross:', sumCross1);
+            arrCross1.push(sumCross1)
+
+        }
+        // console.log('arrCross1:', arrCross1);
+
+
+        for (let i = 0; i < 5; i++) {
+            let sumCross2 = 0;
+            
+            sumCross2 += arrNumber[i][i+1];
+            console.log('sumCross:', sumCross2);
+            arrCross2.push(sumCross2)
+
+        }
+        console.log('arrCross1:', arrCross2);
+
+        for (let i = 0; i < 5; i++) {
+            let sumCross3 = 0;
+            
+            sumCross3 += arrNumber[i][5-i-1];
+            console.log('sumCross:', sumCross3);
+            arrCross3.push(sumCross3)
+
+        }
+        console.log('arrCross1:', arrCross3);
+        
+
+        // let sumRowEx=0;
+
+        // for (let j = 0; j < 5; j++) {
+
+        //     for (let i = 0; i < 6; i++) {
+        //         sumRowEx += arrNumber[j][i];
+        //         console.log('sumRowEx:', sumRowEx);
+        //     }}
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1>người được lựa chọn là </h1>
+    <h2 id="screen" class="screen1">kết quả</h2>
+    <button id="btn">lựa chọn</button>
+
+    <script>
+        do {
+            numberInput = parseInt(prompt('bạn hãy chọn số người ', 2))
+
+            if (numberInput < 3 || numberInput >= 10 || isNaN(numberInput)) { alert(`bạn đã nhập SAI mời bạn nhập lại lớn hơn 3 nhỏ hơn hoặc bằng 10`) }
+            else { alert(`bạn nhập đúng`) }
+        } while (numberInput < 3 || numberInput > 10 || isNaN(numberInput));
+        console.log('số bạn nhập vào:', numberInput);
+        let arrName = [];
+        for (var i = 1; i <= numberInput; i++) {
+            nameIput = prompt(`nhập tên thứ ` + i);
+            arrName.push(nameIput)
+            console.log('nameIput:', nameIput);
+        }
+        console.log('list tên của bạn nhập vào:', arrName);
+        const result = document.getElementById('screen')
+        const handleClick = (e) => {
+        let randomArr = parseInt(Math.random() * arrName.length)
+            document.getElementById('screen').innerHTML= arrName[randomArr]
+            // console.log('document.querySelector("#main"):', document.getElementById('screen1'));
+            // console.log('document.querySelector("#main"):', document.querySelector("#btn"));
+        }
+        document.querySelector("#btn").onclick = handleClick;
+    </script>
+
+</body>
+
+</html>

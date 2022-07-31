@@ -1,7 +1,10 @@
 
-// document.querySelector("#btn").onclick = handle(); 
+// khong duoc xoa
 
-// const vidu =()=>{
-//     console.log('document.querySelector("#main"):',document.querySelector("#btn").onclick);
 
-// }
+document.querySelector("#btn").onclick = handle(); 
+
+const handle =()=>{
+    console.log('document.querySelector("#main"):',document.querySelector("#btn").onclick);
+
+}
