@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <style>
+        /* .done{
+	text-decoration: line-through;
+} */
+
+    </style>
+</head>
+
+<body>
+    <h1>Shopping list</h1>
+    <p id="first">
+        Get it done tody
+    </p>
+    <p class="second">No Excuses</p>
+    <input type="text" id="userinput" placeholder="enter items">
+    <button id="enter">Enter</button>
+    <ul>
+        <li class="bold red" random="23">
+           
+            <h2 class="delete"></h2>
+        </li>
+        <li>
+            <h2 class="delete"></h2>
+
+        </li>
+        <li>
+            <h2 class="delete"></h2>
+        </li>
+        <li>
+            <h2 class="delete"></h2>
+
+        </li>
+        <li>
+            <h2 class="delete"></h2>
+
+        </li>
+    </ul>
+
+
+
+    <script>
+        var button = document.getElementById("enter")
+
+        var newitem = document.getElementById("userinput");
+
+        var ul = document.querySelector("ul");
+
+        var list = document.getElementsByTagName("li");
+
+        var del = document.getElementsByClassName("delete");
+
+        // register actions initially on existing elements
+        for (var i = 0; i < del.length; i++) {
+            console.log('del:',del);
+            del[i].addEventListener("click", deleteListElement);
+        }
+
+        for (var i = 0; i < list.length; i++) {
+            list[i].addEventListener("click", liClick);
+        }
+
+
+        function deleteListElement() {
+            this.parentElement.remove(); // remove parent, since button is child
+
+        }
+
+        function liClick() {
+            this.classList.toggle("done");
+        }
+
+        function inputLength() {
+            return newitem.value.length;
+        }
+
+
+
+        function createListElement() {
+            var li = document.createElement("li");
+            li.appendChild(document.createTextNode(newitem.value));
+
+            newitem.value = " "
+            var delbutt = document.createElement("button");
+            delbutt.appendChild(document.createTextNode("Delete"));
+            li.appendChild(delbutt);
+            ul.appendChild(li);
+
+            // Register action on newly added elements
+            li.addEventListener("click", liClick);
+            delbutt.addEventListener("click", deleteListElement);
+
+        }
+
+        function addListAfterClick() {
+
+            if (inputLength() > 0) {
+                createListElement();
+            }
+
+        }
+
+        function addListAfterEnter(event) {
+            if (inputLength() > 0 && event.keyCode === 13) {
+
+                createListElement()
+            }
+
+        }
+
+        button.addEventListener("click", addListAfterClick);
+        newitem.addEventListener("keypress", addListAfterEnter);
+    </script>
+
+</body>
+
+</html>

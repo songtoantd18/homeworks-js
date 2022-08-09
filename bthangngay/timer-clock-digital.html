@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            background-color: red;
+
+            display: flex;
+            align-content: space-between;
+            justify-content: space-evenly;
+            align-items: baseline;
+
+        }
+
+        p {
+            border-radius: 20%;
+            border: 1px solid black;
+            background-color: #00ff00;
+        }
+
+        h1 {
+            border: 2px solid black;
+            height: 50px;
+            width: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container"> đồng hồ điện tử
+        <p id="date"></p>
+        <p id="month"></p>
+        <p id="year"></p>
+        <p id="hour"></p>
+        <p id="minute"></p>
+        <p id="second"></p>
+        <p id="milisecond"></p>
+
+    </div>
+    <div class="countDown">
+        <button id='countDown'></button>
+        <button id='btn'>submit</button>
+    </div>
+    <script>
+        const timerClock = () => {
+            document.getElementById('date').innerText = new Date().getDate();
+            document.getElementById('month').innerText = new Date().getMonth() + 1;
+            document.getElementById('year').innerText = new Date().getFullYear();
+            document.getElementById('hour').innerText = new Date().getHours();
+            document.getElementById('minute').innerText = new Date().getMinutes();
+            document.getElementById('second').innerText = new Date().getSeconds();
+            document.getElementById('milisecond').innerText = new Date().getMilliseconds();
+        };
+        let myInterval = setInterval(timerClock, 1000)
+        const countDownTimer = setInterval(clockCoutnDown, 1000)
+        const staring = 1.5;
+        let time = staring * 60;
+        const countDown = document.getElementById('countDown')
+        function clockCoutnDown() {
+            const minutes = Math.floor(time / 60);
+            let second = time % 60;
+            if (minutes >= 0) {
+                countDown.innerHTML = `${minutes}:${second}`;
+                time--;
+            } else {
+                clearInterval()
+            }
+        }
+        let handleStop =()=> {
+            console.log(1)
+            clearInterval(countDownTimer);
+        }
+
+        document.querySelector("#btn").onclick  = handleStop;
+
+
+
+
+    </script>
+
+</body>
+
+</html>
