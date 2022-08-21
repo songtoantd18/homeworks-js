@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="block"></h1>
+    <script>
+        const data = fetch('http://localhost:3000/user2').then((res) => {
+            res.json().then((response) => {
+                try {
+                    let content = '';
+                    for (let i = 0; i < response.length; i++) {
+                        content += '<p>' + response[i]?.ten + '</p>';   //?. cho underfine thay vì chạy lỗi 
+                        
+                    }
+                    document.getElementById('block').innerHTML = content;
+                } catch (e) {
+                    console.log('res.json ~ e', e);
+                }
+            });
+            return res;
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <h2>JavaScript Timing</h2>
+
+    <p>A script on this page starts this clock:</p>
+
+    <p id="demo"></p>
+
+    <script>
+        var count = 100;
+        setInterval(myTimer, 10);
+
+        function myTimer() {
+            if(count > 0 ){
+                document.getElementById("demo").innerHTML = count;
+                console.log('1:',1);
+
+            }
+            if(count === 0) {
+                clearInterval(myTimer)
+
+                return window.location.reload();
+
+
+
+                console.log('2:',2);
+
+
+            }
+            count--;
+        }
+
+        // const countDown = () => {
+        //     myVar = setInterval(() => {
+        //         if (count >= 0) {
+        //             $('#counter').innerHTML = count;
+        //         }
+
+        //         if (count < 0) {
+        //             clearInterval();  // ?????????????????
+        //             alert('Het thoi gian! Tro choi ket thuc');
+        //             return window.location.reload();
+        //             console.log(2)
+        //         }
+
+        //         count--;
+        //     }, 1000);
+        // }
+    </script>
+
+</body>
+
+</html>

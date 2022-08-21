@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+
+        }
+
+        #counter {
+            margin: 5px;
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            color: #00ff00;
+            font-size: 50px;
+            border: 1px solid black;
+            border-radius: 99px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <p id="counter">1</p>
+    <div class="container">
+        <h2 id="question">Hom nay la thu may?</h2>
+        <div id="answer-controls">
+            <div class="answer" id="a">A</div>
+            <div class="answer" id="b">B</div>
+            <div class="answer" id="c">C</div>
+            <div class="answer" id="d">D</div>
+        </div>
+        <div id="next">
+            <button id="confirm">Next</button>
+        </div>
+    </div>
+    <script>
+        let myVar;
+        const questionList = [
+            {
+                question: 'Con gi co 4 chan?',
+                answer: ['Con Chim', 'Con Ca', 'Con Ran', 'Con Cho'],
+                correctAnswer: 'Con Cho'
+            },
+            {
+                question: '1 + 1 bang bao nhieu?',
+                answer: ['1', '2', '3', '4'],
+                correctAnswer: '2'
+            },
+            {
+                question: 'Nuoc nao dong dan nhat the gioi',
+                answer: ['My', 'An Do', 'Trung Quoc', 'Singapore'],
+                correctAnswer: 'Trung Quoc'
+            },
+            {
+                question: 'Đâu là thủ đô của Việt Nam?',
+                answer: ['HA NOI', 'CAN THO', 'DA NANG', 'BINH DUONG'],
+                correctAnswer: 'DA NANG'
+            }
+
+
+        ]
+        var count = 100;
+        setInterval(coutDown, 10);
+
+        function coutDown() {
+            if(count > 0 ){
+                document.getElementById("counter").innerHTML = count;
+                console.log('1:',1);
+
+            }
+            if(count === 0) {
+                document.getElementById("counter").innerHTML = `die`;
+                clearInterval(coutDown)
+                // return window.location.reload();
+                console.log('2:',2);
+            }
+            count--;
+        }
+      
+
+        // myVar = setInterval(() => {
+        //     if (count >= 0) {
+        //         $('#counter').innerHTML = count;
+        //     }
+
+        //     if (count < 0) {
+        //         clearInterval();  // ?????????????????
+        //         alert('Het thoi gian! Tro choi ket thuc');
+        //         return window.location.reload();
+        //     }
+
+        //     count--;
+        // }, 1000);
+
+        const display = (id) => {
+            document.getElementById('question').innerHTML = questionList[id].question;
+            document.getElementById('a').innerHTML = questionList[id].answer[0];
+            document.getElementById('b').innerHTML = questionList[id].answer[1];
+            document.getElementById('c').innerHTML = questionList[id].answer[2];
+            document.getElementById('d').innerHTML = questionList[id].answer[3];
+
+
+        }
+        display(1);
+        let index =0;
+        const max_question = questionList.length;
+        const allAnswer = document.querySelectorAll('.answer')
+        console.log('allAnswer:',[...allAnswer]);
+        const delayTimeQuestion =1000;
+
+
+
+        let handleClick = () => {
+        
+
+
+
+
+
+        }
+        document.getElementById("confirm").onclick = handleClick;
+
+    </script>
+</body>
+
+</html>

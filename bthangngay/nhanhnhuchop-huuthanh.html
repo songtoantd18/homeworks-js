@@ -1,0 +1,221 @@
+<html>
+
+<head>
+    <style>
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            background-color: gray;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .container {
+            width: 60rem;
+            background-color: black;
+            color: white;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            border-radius: 12px;
+        }
+
+        #answer-controls {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            padding: 5rem;
+            column-gap: 10rem;
+            row-gap: 5rem;
+        }
+
+        .answer {
+            width: 20rem;
+            border: 1px solid white;
+            padding: 0.5rem 1rem;
+            border-radius: 12px;
+        }
+
+        #next {
+            text-align: center;
+
+        }
+
+        #next button {
+            padding: 0.5rem 1.5rem;
+            color: white;
+            border: 1px solid white;
+            background-color: black;
+            border-radius: 12px;
+            font-weight: bold;
+            font-size: 1.25rem;
+        }
+
+        #counter {
+            background-color: #00ff00;
+            font-size: 4rem;
+            width: 7rem;
+            height: 7rem;
+            font-weight: bold;
+            color: red;
+            border: 2px solid red;
+            position: absolute;
+            top: 2rem;
+            right: 10rem;
+            padding: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 99%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="counter"></div>
+    <div class="container">
+        <h2 id="question">Hom nay la thu may?</h2>
+        <div id="answer-controls">
+            <div class="answer" id="a">A</div>
+            <div class="answer" id="b">B</div>
+            <div class="answer" id="c">C</div>
+            <div class="answer" id="d">D</div>
+        </div>
+        <div id="next">
+            <button id="confirm">Next</button>
+        </div>
+    </div>
+    <script>
+        const $ = (x) => document.querySelector(x);
+        const $All = (x) => document.querySelectorAll(x);
+
+        const questionList = [
+            {
+                question: 'Con gi co 4 chan?',
+                answer: ['Con Chim', 'Con Ca', 'Con Ran', 'Con Cho'],
+                correctAnswer: 'Con Cho'
+            },
+            {
+                question: '1 + 1 bang bao nhieu?',
+                answer: ['1', '2', '3', '4'],
+                correctAnswer: '2'
+            },
+            {
+                question: 'Nuoc nao dong dan nhat the gioi',
+                answer: ['My', 'An Do', 'Trung Quoc', 'Singapore'],
+                correctAnswer: 'Trung Quoc'
+            }
+        ]
+
+        let count = 999999;
+        let myVar;
+
+        // ????????????????????
+        // let countDown = setInterval(() => {
+        //     if(count >= 0){
+        //         $('#counter').innerHTML = count;
+        //     }
+        //     count--;
+        // }, 1000);
+        const countDown = () => {
+            myVar = setInterval(() => {
+                if (count >= 0) {
+                    $('#counter').innerHTML = count;
+                }
+
+                if (count < 0) {
+                    clearInterval();  // ?????????????????
+                    alert('Het thoi gian! Tro choi ket thuc');
+                    return window.location.reload();
+                }
+
+                count--;
+            }, 1000);
+        }
+
+        const display = (id) => {
+            $('#question').innerHTML = questionList[id].question;
+            $('#a').innerHTML = questionList[id].answer[0];
+            $('#b').innerHTML = questionList[id].answer[1];
+            $('#c').innerHTML = questionList[id].answer[2];
+            $('#d').innerHTML = questionList[id].answer[3];
+            countDown();
+        }
+
+        display(0);//chạy câu hỏi đầu tiên
+
+
+
+        let DOM_object = '';
+        
+        let index = 0;
+        const max_question = questionList.length;
+        const vidu = $All('.answer');
+        const delayTimeQuestion = 1200;
+
+
+        [...$All('.answer')].forEach((element,index,array )=> {
+           const myFuntion = ()=>{
+                DOM_object = element;  // gắn giá trị bằng element
+                DOM_object.style.backgroundColor = 'blue';//câu nào kích thì màu xanh 
+                let other_answers = [...$All('.answer')].filter(item => 
+                item != DOM_object,// lọc ra giá trị item khác Dom_object
+                );
+                other_answers.forEach(item => item.style.backgroundColor = 'yellow');   
+                //  câu nào k kích thì màu vàng, có thể thêm 1 css vào đây
+            }
+            element.onclick = myFuntion;
+            // element.addEventListener('click', myFuntion)
+        })
+
+        $('#confirm').onclick = () => {
+            // clearInterval(countDown);
+            clearInterval(myVar);
+            if (DOM_object === '') //không được để giá trị trống khi nộp
+            {
+                alert('Ban phai chon dap an');
+            }
+            if (DOM_object.innerHTML === questionList[index].correctAnswer)//nếu giá trị in ra bằng giá trị correct answer thì đúng
+             { //chia ra 2 trường hợp nếu câu bth thì không sao, nếu tới câu cuổi thì sẽ chuyển sang trường hợp 2 bạn đã thắng nên mới có dòng này
+                if (index < max_question-1) //tới câu hỏi số 2 sẽ chuẩn bị để dừng clearinterval
+                {//nếu đúng giá trị sẽ có 1,5s để dừng chạy màu xanh kết quả đúng,và chuyển sang câu hỏi tiếp theo
+                    DOM_object.style.backgroundColor = '#00ff00';
+                    // aler('chính xác')
+                    setTimeout(() => {
+                        DOM_object.style.backgroundColor = 'black';
+                        DOM_object = '';
+                        count = 1000005 ;//có 2 cách thứ 1 là như vậy qua mỗi câu sẽ reset time lại bằng 10
+                        // count=count; để như vậy thì sẽ mỗi lần qua câu khác sẽ chạy tiếp thời gia k reset lại
+                        index = index + 1;//lên 1 đơn vị
+
+                        display(index);//đúng câu hỏi chuyển sang câu tiếp theo
+                    }, delayTimeQuestion); // thời gian hiệu ứng xảy ra chuyển từ câu hỏi này sang câu khác
+                }
+                else {
+                    DOM_object.style.backgroundColor = 'green';
+                    return alert('Chuc mung, ban da chien thang');
+                }
+            }
+            else { //đáp án sai
+                DOM_object.style.backgroundColor = 'red';
+                setTimeout(() => {
+                    DOM_object.style.backgroundColor = 'yellow';
+                    alert('Tro choi ket thuc');
+                    return window.location.reload();
+                }, delayTimeQuestion);
+            }
+        }
+
+    </script>
+</body>
+
+</html>
